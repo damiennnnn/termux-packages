@@ -57,7 +57,7 @@ else
 	VOLUME=$REPOROOT:$CONTAINER_HOME_DIR/termux-packages
 fi
 
-: ${TERMUX_BUILDER_IMAGE_NAME:=termux/package-builder}
+: ${TERMUX_BUILDER_IMAGE_NAME:=localhost/termux/package-builder}
 : ${CONTAINER_NAME:=termux-package-builder}
 
 USER=builder
