@@ -124,7 +124,7 @@ termux_step_start_build() {
 			local TERMUX_ELF_CLEANER_VERSION
 			TERMUX_ELF_CLEANER_VERSION=$(bash -c ". $TERMUX_SCRIPTDIR/packages/termux-elf-cleaner/build.sh; echo \$TERMUX_PKG_VERSION")
 			termux_download \
-				"https://github.com/damiennnnn/termux-elf-cleaner/releases/download/v${TERMUX_ELF_CLEANER_VERSION}/termux-elf-cleaner" \
+				"https://github.com/damiennnnn/termux-elf-cleaner/releases/download/v${TERMUX_ELF_CLEANER_VERSION}-arm64/termux-elf-cleaner" \
 				"$TERMUX_ELF_CLEANER" \
 				cea91365a7e1831c96bdeb15e61513fe2d8ced9d0d350b4999109239ca17c161
 			chmod u+x "$TERMUX_ELF_CLEANER"
