@@ -131,9 +131,8 @@ PACKAGES+=" ruby"
 
 # Needed by host build of package nodejs.
 PACKAGES+=" libc-ares-dev"
-PACKAGES+=" libc-ares-dev:i386"
 PACKAGES+=" libicu-dev"
-PACKAGES+=" libsqlite3-dev:i386"
+PACKAGES+=" libsqlite3-dev"
 
 # Needed by php.
 PACKAGES+=" re2c"
@@ -148,7 +147,7 @@ PACKAGES+=" libssl-dev"
 
 # Needed by librusty-v8
 PACKAGES+=" libclang-rt-17-dev"
-PACKAGES+=" libclang-rt-17-dev:i386"
+PACKAGES+=" libclang-rt-17-dev"
 
 # Needed for package smalltalk.
 PACKAGES+=" libsigsegv-dev"
@@ -160,8 +159,7 @@ PACKAGES+=" tcl"
 # Needed by package swi-prolog.
 PACKAGES+=" openssl"
 PACKAGES+=" zlib1g-dev"
-PACKAGES+=" libssl-dev:i386"
-PACKAGES+=" zlib1g-dev:i386"
+PACKAGES+=" libssl-dev"
 
 # For swift.
 PACKAGES+=" lld"
@@ -284,17 +282,16 @@ PACKAGES+=" openjdk-17-jre openjdk-17-jdk"
 PACKAGES+=" openjdk-21-jre openjdk-21-jdk"
 
 # Required by qt5-qtwebengine
-PACKAGES+=" libnss3 libnss3:i386 libnss3-dev"
-PACKAGES+=" libwebp7 libwebp7:i386 libwebp-dev"
-PACKAGES+=" libwebpdemux2 libwebpdemux2:i386"
-PACKAGES+=" libwebpmux3 libwebpmux3:i386"
+PACKAGES+=" libnss3 libnss3-dev"
+PACKAGES+=" libwebp7 libwebp-dev"
+PACKAGES+=" libwebpdemux2"
+PACKAGES+=" libwebpmux3"
 
 # Required by chromium-based packages
 PACKAGES+=" libfontconfig1"
-PACKAGES+=" libfontconfig1:i386"
 PACKAGES+=" libcups2-dev"
-PACKAGES+=" libglib2.0-0t64:i386"
-PACKAGES+=" libexpat1:i386"
+PACKAGES+=" libglib2.0-0t64"
+PACKAGES+=" libexpat1"
 
 # Required by code-oss
 PACKAGES+=" libxkbfile-dev"
@@ -302,7 +299,7 @@ PACKAGES+=" libsecret-1-dev"
 PACKAGES+=" libkrb5-dev"
 
 # Required by wine-stable
-PACKAGES+=" libfreetype-dev:i386"
+PACKAGES+=" libfreetype-dev"
 
 # Required by CGCT
 PACKAGES+=" libdebuginfod-dev"
@@ -326,7 +323,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 # Allow 32-bit packages.
-$SUDO dpkg --add-architecture i386
+# $SUDO dpkg --add-architecture i386
 
 $SUDO apt-get -yq update
 
@@ -347,7 +344,7 @@ LLVM_PACKAGES+=" clang-${TERMUX_HOST_LLVM_MAJOR_VERSION}"
 $SUDO cp $(dirname "$(realpath "$0")")/llvm-snapshot.gpg.key /etc/apt/trusted.gpg.d/apt.llvm.org.asc
 $SUDO chmod a+r /etc/apt/trusted.gpg.d/apt.llvm.org.asc
 {
-	echo "deb [arch=amd64] http://apt.llvm.org/noble/ llvm-toolchain-noble-${TERMUX_HOST_LLVM_MAJOR_VERSION} main"
+	echo "deb [arch=arm64] http://apt.llvm.org/noble/ llvm-toolchain-noble-${TERMUX_HOST_LLVM_MAJOR_VERSION} main"
 } | $SUDO tee /etc/apt/sources.list.d/apt-llvm-org.list > /dev/null
 
 $SUDO apt-get -yq update
